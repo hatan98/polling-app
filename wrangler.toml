@@ -1,0 +1,24 @@
+name = "polling-app"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+
+[durable_objects]
+bindings = [
+  { name = "POLL", class_name = "Poll" }
+]
+
+[[migrations]]
+tag = "v1"
+new_classes = ["Poll"]
+
+# Thay ID này bằng ID thực từ output của wrangler kv namespace create
+[[kv_namespaces]]
+binding = "POLLS_KV"
+id = "97498cd355aa4544bfe28c483e9e2681"
+preview_id = "dbbad7a443af44fba6832b67002e48c2"
+
+[env.production]
+name = "polling-app"
+
+[env.preview]
+name = "polling-app-preview"
